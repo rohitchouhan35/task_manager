@@ -1,0 +1,27 @@
+import mongoose from "mongoose";
+
+const feedbackSchema = new mongoose.Schema({
+    LAWYER_MOBILENUMBER: {
+        type: String,
+    },
+    CUSTOMER_MOBILENUMBER: {
+        type: String,
+    },
+    TIME:{
+        type: String, 
+    },
+    MESSAGE: {
+        type: String,
+    },
+    RATING: {
+        type: Number,
+    },
+    CUSTOMER_IMAGE: {
+        type: String,
+    }
+});
+
+
+const FeedbackSchema=mongoose.model('Feedback',feedbackSchema);
+
+export default FeedbackSchema;

@@ -1,0 +1,27 @@
+import winston from 'winston';
+import 'winston-daily-rotate-file';
+
+// Create a logger with winston
+const loggers = winston.createLogger({
+  level: 'info', // Set the log level to control which messages are logged
+  format: winston.format.combine(
+    winston.format.timestamp(), // Add timestamp to log entries
+    winston.format.json() // Log in JSON format for easier parsing
+  ),
+  transports: [
+    // Log to console during development
+    // process.env.NODE_ENV === 'development'
+      // ? 
+      new winston.transports.Console(),
+      // : null, // Use null to omit the transport in production
+    new winston.transports.DailyRotateFile({
+      filename: 'logs/application-%DATE%.log', // Log files will be created daily
+      datePattern: 'YYYY-MM-DD',
+      zippedArchive: true,
+      maxSize: '20m',
+      maxFiles: '1d',
+    }),
+  ].filter(Boolean), // Filter out null values
+});
+
+export default loggers;
