@@ -1,7 +1,7 @@
 API documentation: https://documenter.getpostman.com/view/27537768/2sA3BgBvxB
 
 required fields in .env file
-URL="mongodb+srv://***********mongodb.net/legalbuddy?retryWrites=true&w=majority"
+URL="mongodb+srv://mongodb.net/legalbuddy?retryWrites=true&w=majority"
 region="ap-south-1"
 accessKeyId="sccedd_key"
 secretAccessKey="secret_key"
